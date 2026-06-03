@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mini Project Azure Serverless</title>
+
+<title>Estimasi Biaya Kegiatan Mahasiswa</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -14,54 +16,44 @@
 }
 
 body{
-    background:linear-gradient(135deg,#0f172a,#1e3a8a);
+    background:linear-gradient(135deg,#0ea5e9,#0284c7);
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
     padding:30px;
 }
 
 .container{
-    width:900px;
-    max-width:100%;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
     background:white;
-    border-radius:20px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    border-radius:18px;
+    padding:25px;
+    margin-bottom:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 .header{
-    background:linear-gradient(135deg,#2563eb,#1d4ed8);
-    color:white;
     text-align:center;
-    padding:35px;
+    background:white;
+    border-radius:18px;
+    padding:30px;
+    margin-bottom:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.15);
 }
 
 .header h1{
-    font-size:32px;
+    color:#2563eb;
     margin-bottom:10px;
 }
 
 .header p{
-    font-size:16px;
-    opacity:0.9;
+    color:#64748b;
 }
 
-.content{
-    padding:30px;
-}
-
-.card{
-    background:#f8fafc;
-    border-left:5px solid #2563eb;
-    padding:20px;
-    border-radius:12px;
-    margin-bottom:20px;
-}
-
-.card h2{
-    color:#1e3a8a;
+h2{
+    color:#2563eb;
     margin-bottom:15px;
 }
 
@@ -69,33 +61,25 @@ body{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:15px;
-    margin-top:10px;
 }
 
-.info div{
-    background:white;
+.info-box{
+    background:#f8fafc;
     padding:15px;
     border-radius:10px;
-    box-shadow:0 2px 5px rgba(0,0,0,0.08);
 }
 
 .services{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
 .service{
-    background:white;
+    background:#eff6ff;
+    text-align:center;
     padding:20px;
     border-radius:12px;
-    text-align:center;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08);
-    transition:0.3s;
-}
-
-.service:hover{
-    transform:translateY(-5px);
 }
 
 .service h3{
@@ -103,12 +87,82 @@ body{
     margin-bottom:10px;
 }
 
-.footer{
-    text-align:center;
-    background:#f1f5f9;
-    padding:15px;
-    color:#64748b;
+.price-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
+
+.price{
+    background:#f8fafc;
+    text-align:center;
+    padding:20px;
+    border-radius:12px;
+}
+
+.price h3{
+    color:#2563eb;
+}
+
+.price p{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+input,select{
+    width:100%;
+    padding:12px;
+    margin-top:8px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:8px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.result{
+    background:#eff6ff;
+    border-left:5px solid #2563eb;
+    padding:20px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+.total{
+    margin-top:15px;
+    font-size:28px;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+pre{
+    background:#0f172a;
+    color:#f8fafc;
+    padding:15px;
+    border-radius:10px;
+    overflow:auto;
+}
+
+footer{
+    text-align:center;
+    color:white;
+    margin-top:20px;
+}
+
 </style>
 </head>
 
@@ -117,77 +171,136 @@ body{
 <div class="container">
 
     <div class="header">
-        <h1>Mini Project Azure Serverless</h1>
-        <p>Website Informasi dan API Estimasi Biaya Kegiatan Mahasiswa</p>
+        <h1>🎓 Estimasi Biaya Kegiatan Mahasiswa</h1>
+        <p>Sistem Estimasi Konsumsi Kegiatan Mahasiswa Berbasis Azure Serverless</p>
     </div>
 
-    <div class="content">
+    <div class="card">
 
-        <div class="card">
-            <h2>👨‍🎓 Identitas Mahasiswa</h2>
+        <h2>👨‍🎓 Identitas Mahasiswa</h2>
 
-            <div class="info">
-                <div>
-                    <strong>Nama</strong><br>
-                    Gumelar Akhirul Ramadhan
-                </div>
+        <div class="info">
 
-                <div>
-                    <strong>NIM</strong><br>
-                    0920240027
-                </div>
-
-                <div>
-                    <strong>Mata Kuliah</strong><br>
-                    Komputasi Awan
-                </div>
-
-                <div>
-                    <strong>Topik</strong><br>
-                    Azure Serverless
-                </div>
+            <div class="info-box">
+                <strong>Nama</strong><br>
+                Gumelar Akhirul Ramadhan
             </div>
-        </div>
 
-        <div class="card">
-            <h2>☁️ Layanan Azure yang Digunakan</h2>
-
-            <div class="services">
-
-                <div class="service">
-                    <h3>Azure Static Web Apps</h3>
-                    <p>Hosting website frontend.</p>
-                </div>
-
-                <div class="service">
-                    <h3>Azure Functions</h3>
-                    <p>API estimasi biaya kegiatan.</p>
-                </div>
-
-                <div class="service">
-                    <h3>GitHub Actions</h3>
-                    <p>Deployment otomatis ke Azure.</p>
-                </div>
-
+            <div class="info-box">
+                <strong>NIM</strong><br>
+                0920240027
             </div>
-        </div>
 
-        <div class="card">
-            <h2>📋 Deskripsi Project</h2>
+            <div class="info-box">
+                <strong>Mata Kuliah</strong><br>
+                Komputasi Awan
+            </div>
 
-            <p>
-                Sistem ini digunakan untuk menghitung estimasi biaya konsumsi
-                kegiatan mahasiswa berdasarkan jumlah peserta dan jenis konsumsi
-                yang dipilih. API dibangun menggunakan Azure Functions dan
-                website informasi di-host menggunakan Azure Static Web Apps.
-            </p>
+            <div class="info-box">
+                <strong>Topik</strong><br>
+                Azure Serverless
+            </div>
+
         </div>
 
     </div>
 
-    <div class="footer">
-        Azure Serverless Mini Project © 2026
+    <div class="card">
+
+        <h2>☁️ Layanan Azure yang Digunakan</h2>
+
+        <div class="services">
+
+            <div class="service">
+                <h3>Azure Static Web Apps</h3>
+                <p>Hosting Frontend</p>
+            </div>
+
+            <div class="service">
+                <h3>Azure Functions</h3>
+                <p>API Estimasi Biaya</p>
+            </div>
+
+            <div class="service">
+                <h3>GitHub Actions</h3>
+                <p>Deployment Otomatis</p>
+            </div>
+
+        </div>
+
     </div>
+
+    <div class="card">
+
+        <h2>💰 Daftar Harga Konsumsi</h2>
+
+        <div class="price-list">
+
+            <div class="price">
+                <h3>Snack</h3>
+                <p>Rp15.000</p>
+            </div>
+
+            <div class="price">
+                <h3>Makan</h3>
+                <p>Rp30.000</p>
+            </div>
+
+            <div class="price">
+                <h3>Lengkap</h3>
+                <p>Rp45.000</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📊 Hasil Pengujian API</h2>
+
+        <div class="result">
+
+            <p><strong>Jumlah Peserta:</strong> 40</p>
+            <p><strong>Jenis Konsumsi:</strong> snack</p>
+            <p><strong>Harga per Peserta:</strong> Rp 15.000</p>
+            <p><strong>Waktu Proses:</strong> 2026-06-03T14:26:42.262Z</p>
+
+            <div class="total">
+                Total Estimasi: Rp 600.000
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>📖 Dokumentasi API</h2>
+
+        <p><strong>Contoh Request:</strong></p>
+
+        <pre>
+/api/estimate?jumlah=40&jenis=snack
+        </pre>
+
+        <p><strong>Contoh Response:</strong></p>
+
+        <pre>
+{
+  "jumlah": 40,
+  "jenis": "snack",
+  "hargaPerPeserta": 15000,
+  "total": 600000,
+  "timestamp": "2026-06-03T14:26:42.262Z"
+}
+        </pre>
+
+    </div>
+
+    <footer>
+        Mini Project Komputasi Awan 2026 | Azure Static Web Apps + Azure Functions
+    </footer>
 
 </div>
 
